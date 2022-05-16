@@ -76,5 +76,3 @@ variable "data_dashboard_image_tag" {
   description = "tag of the Data Dashboard web app image to deploy"
   default     = "oneweek"
 }
-
-
