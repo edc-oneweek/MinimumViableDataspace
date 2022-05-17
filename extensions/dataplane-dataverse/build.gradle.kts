@@ -10,6 +10,9 @@ val assertj: String by project
 
 dependencies {
     implementation("${edcGroup}:identity-did-spi:${edcVersion}")
-    implementation("${edcGroup}:data-plane-spi:${edcVersion}")
-    implementation("com.squareup.okhttp3:okhttp:4.9.3")
+
+    testImplementation("org.assertj:assertj-core:${assertj}")
+    testImplementation("org.junit.jupiter:junit-jupiter-api:${jupiterVersion}")
+    testImplementation("org.mockito:mockito-core:${mockitoVersion}")
+    testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:${jupiterVersion}")
 }
