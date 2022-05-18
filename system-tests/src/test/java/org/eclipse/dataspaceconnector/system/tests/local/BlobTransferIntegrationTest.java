@@ -46,12 +46,12 @@ public class BlobTransferIntegrationTest {
     public static final String KEY_VAULT_ENDPOINT_TEMPLATE = "https://%s.vault.azure.net";
 
     @Test
-    public void transferBlob_success() {
+    public void transferDataverse_success() {
         BlobServiceClient blobServiceClient2 = getBlobServiceClient(DST_KEY_VAULT_NAME);
 
         // Act
         System.setProperty(ACCOUNT_NAME_PROPERTY, blobServiceClient2.getAccountName());
-        runGatling(BlobTransferLocalSimulation.class, TransferSimulationUtils.DESCRIPTION);
+        runGatling(DataverseTransferLocalSimulation.class, TransferSimulationUtils.DESCRIPTION);
 
         // Assert
         var container = getProvisionedContainerName();

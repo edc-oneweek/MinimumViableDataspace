@@ -49,7 +49,7 @@ public abstract class TransferSimulationUtils {
     public static final String CONTRACT_NEGOTIATION_REQUEST_ID = "contractNegotiationRequestId";
     public static final String TRANSFER_PROCESS_ID = "transferProcessId";
 
-    public static final String DESCRIPTION = "[Contract negotiation and file transfer]";
+    public static final String DESCRIPTION = "[Contract negotiation and dataverse transfer]";
 
     public static final String PROVIDER_ASSET_ID = "test-document";
     public static final String PROVIDER_ASSET_FILE = "text-document.txt";
@@ -220,7 +220,7 @@ public abstract class TransferSimulationUtils {
         var policy = Policy.Builder.newInstance()
                 .id(UUID.randomUUID().toString())
                 .permission(Permission.Builder.newInstance()
-                        .target("test-document")
+                        .target("test-dataverse")
                         .action(Action.Builder.newInstance().type("USE").build())
                         .build())
                 .type(PolicyType.SET)
