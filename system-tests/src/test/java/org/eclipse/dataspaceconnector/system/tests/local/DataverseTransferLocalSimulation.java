@@ -19,6 +19,6 @@ public class DataverseTransferLocalSimulation extends TransferLocalSimulation {
     static final String ACCOUNT_NAME_PROPERTY = "BlobTransferLocalSimulation-account-name";
 
     public DataverseTransferLocalSimulation() {
-        super(new BlobTransferRequestFactory(System.getProperty(ACCOUNT_NAME_PROPERTY)));
+        super(new DataverseTransferRequestFactory(System.getProperty(ACCOUNT_NAME_PROPERTY)));
     }
 }

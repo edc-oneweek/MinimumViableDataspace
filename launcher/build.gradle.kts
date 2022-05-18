@@ -24,6 +24,7 @@ val edcGroup: String by project
 dependencies {
     implementation(project(":extensions:refresh-catalog"))
     implementation(project(":extensions:mock-credentials-verifier"))
+    implementation(project(":extensions:dataplane-dataverse"))
     implementation("${edcGroup}:core:${edcVersion}")
     implementation("${edcGroup}:ids:${edcVersion}")
     implementation("${edcGroup}:observability-api:${edcVersion}")
