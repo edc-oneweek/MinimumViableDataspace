@@ -30,7 +30,34 @@ Dataspace Configuration
 
 ### "Publish to dataspace" button
 
-More information about the button can be found in the [decision record doc](link TBD).
+![button](.attachments/button.png)
+
+"Publish to dataspace" button was created using JScript Web Resource button with the following JScript code:
+
+```javascript
+
+function publishToDataspace(currentControl) {
+    // v2.0
+    console.log("publishToDataspace");
+    
+    var parameters = {};
+    parameters["edc_publishedrecordid"] = currentControl.data.entity.getId();  
+    parameters["edc_publishedtablename"] = currentControl.data.entity.getEntityName();
+
+    var entityFormOptions = {};
+    entityFormOptions["entityName"] = "edc_dspublish";
+
+    Xrm.Navigation.openForm(entityFormOptions, parameters).then(
+        function (success) {
+            console.log(success);
+        },
+        function (error) {
+            console.log(error);
+        }
+    );  
+}
+
+```
 
 ### Custom connector in Power Automate
 
@@ -62,5 +89,6 @@ Simplifications:
 
 ### Future considerations
 
-TBD
+- Decoupled Asset Relationships in Dataverse - more information in the [decision record doc](../docs/developer/decision-records/2022-05-19-asset-relationships/README.md)
+
  
