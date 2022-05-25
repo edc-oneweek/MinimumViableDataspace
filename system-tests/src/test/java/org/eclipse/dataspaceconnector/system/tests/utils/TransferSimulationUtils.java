@@ -220,7 +220,7 @@ public abstract class TransferSimulationUtils {
         var policy = Policy.Builder.newInstance()
                 .id(UUID.randomUUID().toString())
                 .permission(Permission.Builder.newInstance()
-                        .target("test-dataverse")
+                        .target("test-document")
                         .action(Action.Builder.newInstance().type("USE").build())
                         .build())
                 .type(PolicyType.SET)
