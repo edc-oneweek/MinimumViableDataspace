@@ -75,7 +75,6 @@ variable "registry_share" {
 variable "data_dashboard_image_tag" {
   description = "tag of the Data Dashboard web app image to deploy"
   default     = "oneweek3"
-  default     = "oneweek2"
 }
 
 variable "data_dashboard_theme" {
@@ -88,6 +87,7 @@ variable "dynamics_tenant_id" {
 
 variable "dynamics_client_id" {
 }
+
 variable "dynamics_username" {
 }
 
