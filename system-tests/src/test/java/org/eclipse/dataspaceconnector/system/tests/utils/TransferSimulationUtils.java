@@ -188,7 +188,7 @@ public abstract class TransferSimulationUtils {
         return group("Wait for transfer")
                 .on(exec(session -> session.set("status", "INITIAL"))
                         .doWhileDuring(session -> transferNotCompleted(session),
-                                Duration.ofSeconds(30))
+                                Duration.ofSeconds(90))
                         .on(exec(getTransferStatus()).pace(Duration.ofSeconds(1))))
 
                 .exitHereIf(session -> transferNotCompleted(session))

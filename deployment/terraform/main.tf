@@ -54,7 +54,7 @@ data "azurerm_storage_share" "registry" {
 locals {
   registry_files_prefix = "${var.prefix}-"
 
-  connector_id = "urn:connector:${var.prefix}-${var.participant_name}"
+  connector_id   = "urn:connector:${var.prefix}-${var.participant_name}"
   connector_name = "connector-${var.participant_name}"
 
   did_url = "did:web:${azurerm_storage_account.did.primary_web_host}"
@@ -123,6 +123,12 @@ resource "azurerm_container_group" "edc" {
       # Refresh catalog frequently to accelerate scenarios
       EDC_CATALOG_CACHE_EXECUTION_DELAY_SECONDS  = 10
       EDC_CATALOG_CACHE_EXECUTION_PERIOD_SECONDS = 10
+
+      # Dataverse extension
+      DYNAMICS_TENANT_ID = var.dynamics_tenant_id
+      DYNAMICS_CLIENT_ID = var.dynamics_client_id
+      DYNAMICS_USERNAME  = var.dynamics_username
+      DYNAMICS_PASSWORD  = var.dynamics_password
     }
 
     secure_environment_variables = {
@@ -178,11 +184,11 @@ resource "azurerm_container_group" "webapp" {
       mount_path = "/usr/share/nginx/html/assets/config"
       secret = {
         "app.config.json" = base64encode(jsonencode({
-          "dataManagementApiUrl" = "http://${azurerm_container_group.edc.fqdn}:${local.edc_management_port}/api/v1/data"
-          "catalogUrl"           = "http://${azurerm_container_group.edc.fqdn}:${local.edc_default_port}/api/federatedcatalog"
-          "storageAccount"       = azurerm_storage_account.inbox.name
+          "dataManagementApiUrl"        = "http://${azurerm_container_group.edc.fqdn}:${local.edc_management_port}/api/v1/data"
+          "catalogUrl"                  = "http://${azurerm_container_group.edc.fqdn}:${local.edc_default_port}/api/federatedcatalog"
+          "storageAccount"              = azurerm_storage_account.inbox.name
           "storageExplorerLinkTemplate" = "storageexplorer://v=1&accountid=${azurerm_resource_group.participant.id}/providers/Microsoft.Storage/storageAccounts/{{account}}&subscriptionid=${data.azurerm_subscription.current_subscription.subscription_id}&resourcetype=Azure.BlobContainer&resourcename={{container}}",
-          "apiKey"               = local.api_key
+          "apiKey"                      = local.api_key
         }))
       }
     }
@@ -300,12 +306,12 @@ resource "azurerm_storage_blob" "did" {
         "@base" = local.did_url
       }
     ],
-    "service": [
+    "service" : [
       {
-        "id": "#identity-hub-url",
-        "type": "IdentityHub",
+        "id" : "#identity-hub-url",
+        "type" : "IdentityHub",
         // Only the query parameters are used, see MockCredentialsVerifier class
-        "serviceEndpoint": "http://dummy?region=eu"
+        "serviceEndpoint" : "http://dummy?region=eu"
       }
     ],
     "verificationMethod" = [

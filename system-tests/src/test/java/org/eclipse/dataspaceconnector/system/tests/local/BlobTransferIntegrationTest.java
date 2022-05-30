@@ -54,12 +54,12 @@ public class BlobTransferIntegrationTest {
         runGatling(DataverseTransferLocalSimulation.class, TransferSimulationUtils.DESCRIPTION);
 
         // Assert
-        /*var container = getProvisionedContainerName();
+        var container = getProvisionedContainerName();
         var destinationBlob = blobServiceClient2.getBlobContainerClient(container)
-                .getBlobClient(PROVIDER_ASSET_FILE);
+                .getBlobClient("dataversePart");
         assertThat(destinationBlob.exists())
                 .withFailMessage("Destination blob %s not created", destinationBlob.getBlobUrl())
-                .isTrue();*/
+                .isTrue();
     }
 
     @NotNull

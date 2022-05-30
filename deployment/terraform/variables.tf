@@ -76,3 +76,15 @@ variable "data_dashboard_image_tag" {
   description = "tag of the Data Dashboard web app image to deploy"
   default     = "oneweek2"
 }
+
+variable "dynamics_tenant_id" {
+}
+
+variable "dynamics_client_id" {
+}
+
+variable "dynamics_username" {
+}
+
+variable "dynamics_password" {
+}
