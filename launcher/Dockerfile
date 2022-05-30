@@ -11,6 +11,11 @@ RUN apt update \
     && apt install -y curl \
     && rm -rf /var/cache/apt/archives /var/lib/apt/lists
 
+# Install curl, then delete apt indexes to save image space
+RUN apt update \
+    && apt install -y curl \
+    && rm -rf /var/cache/apt/archives /var/lib/apt/lists
+
 WORKDIR /app
 COPY ./build/libs/app.jar /app
 
@@ -19,7 +24,7 @@ EXPOSE 9191
 EXPOSE 8282
 
 # health status is determined by the availability of the /health endpoint
-HEALTHCHECK --interval=5s --timeout=5s --retries=10 CMD curl --fail http://localhost:8181/api/check/health
+HEALTHCHECK --interval=5s --timeout=5s --retries=10 CMD curl -H "X-Api-Key: $EDC_API_AUTH_KEY" --fail http://localhost:8181/api/check/health
 
 ENV WEB_HTTP_PORT="8181"
 ENV WEB_HTTP_PATH="/api"
@@ -29,5 +34,7 @@ ENV WEB_HTTP_IDS_PORT="8282"
 ENV WEB_HTTP_IDS_PATH="/api/v1/ids"
 
 # Use "exec" for graceful termination (SIGINT) to reach JVM.
+# ARG can not be used in ENTRYPOINT so storing value in an ENV variable
+ENV ENV_JVM_ARGS=$JVM_ARGS
 ENTRYPOINT [ "sh", "-c", \
     "exec java ${ENV_JVM_ARGS} -jar app.jar"]

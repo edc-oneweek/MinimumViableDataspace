@@ -7,9 +7,9 @@ runs:
     - name: Checkout EDC
       uses: actions/checkout@v2
       with:
-        repository: agera-edc/DataSpaceConnector
+        repository: eclipse-dataspaceconnector/DataSpaceConnector
         path: DataSpaceConnector
-        ref: 5d2e4ecac40ced98a463b919a3e02c6ecc3ed5d7
+        ref: db34d77bc86c0013a6f98208fd14f62ff9549dcb
 
     # Install Java and cache MVD Gradle build.
     - uses: actions/setup-java@v2
@@ -33,7 +33,7 @@ runs:
     # This action only runs if the packages could not be restored from the cache.
     - name: Build EDC packages
       run: |
-        ./gradlew -Pskip.signing=true publishToMavenLocal
+        ./gradlew publishToMavenLocal -Pskip.signing
       if: steps.cache.outputs.cache-hit != 'true' # only on cache miss
       shell: bash
       working-directory: DataSpaceConnector
