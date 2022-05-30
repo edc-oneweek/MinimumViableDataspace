@@ -4,7 +4,7 @@
 
 A new asset can be added through the EDC data dashboard, in this process we actually point to a pre-existing asset in a participant's respective object storage account. In the current MVD version, only Azure Object Storage is supported.
 
-If we want to add an asset named as `test-document` then this asset must be already available in the participant's object storage account under a container named as `src-container` before we can add it via the dashboard UI. Refer to the following links for more details about how to upload an asset in Azure Object Storage:
+If we want to add an asset named as `dataverse-data` then this asset must be already available in the participant's object storage account under a container named as `src-container` before we can add it via the dashboard UI. Refer to the following links for more details about how to upload an asset in Azure Object Storage:
 
 * [Create a container](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-portal#create-a-container)
 * [Upload a blob](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-portal#upload-a-block-blob)

@@ -51,7 +51,7 @@ public abstract class TransferSimulationUtils {
 
     public static final String DESCRIPTION = "[Contract negotiation and dataverse transfer]";
 
-    public static final String PROVIDER_ASSET_ID = "test-document";
+    public static final String PROVIDER_ASSET_ID = "dataverse-data";
     public static final String PROVIDER_ASSET_FILE = "text-document.txt";
 
     public static final String TRANSFER_SUCCESSFUL = "Transfer successful";
@@ -220,7 +220,7 @@ public abstract class TransferSimulationUtils {
         var policy = Policy.Builder.newInstance()
                 .id(UUID.randomUUID().toString())
                 .permission(Permission.Builder.newInstance()
-                        .target("test-document")
+                        .target("dataverse-data")
                         .action(Action.Builder.newInstance().type("USE").build())
                         .build())
                 .type(PolicyType.SET)
