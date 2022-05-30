@@ -38,6 +38,9 @@ public class DataverseDataSource implements DataSource {
     }
 
     private HttpPart getPart() throws IOException {
+        System.out.println("tenantID:" + tenantId);
+        System.out.println("clientID:" + clientId);
+        System.out.println("userName:" + userName);
         UsernamePasswordCredential cred = new UsernamePasswordCredentialBuilder()
                 .tenantId(tenantId)
                 .clientId(clientId)

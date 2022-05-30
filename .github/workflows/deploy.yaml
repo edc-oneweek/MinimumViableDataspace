@@ -160,10 +160,10 @@ jobs:
           TF_VAR_registry_resource_group: ${{ secrets.COMMON_RESOURCE_GROUP }}
           TF_VAR_registry_storage_account: ${{ secrets.REGISTRY_STORAGE_ACCOUNT }}
           TF_VAR_registry_share: ${{ secrets.REGISTRY_SHARE }}
-          TF_VAR_dynamics_tenant_id: ${{ secrets.dynamics_tenant_id}}
-          TF_VAR_dynamics_client_id: ${{ secrets.dynamics_client_id}}
-          TF_VAR_dynamics_username: ${{ secrets.dynamics_username}}
-          TF_VAR_dynamics_password: ${{ secrets.dynamics_password}}
+          TF_VAR_dynamics_tenant_id: ${{ secrets.dynamics_tenant_id }}
+          TF_VAR_dynamics_client_id: ${{ secrets.dynamics_client_id }}
+          TF_VAR_dynamics_username: ${{ secrets.dynamics_username }}
+          TF_VAR_dynamics_password: ${{ secrets.dynamics_password }}
 
       - name: 'Verify did endpoint is available'
         run: curl https://$DID_HOST/.well-known/did.json | jq '.id'
