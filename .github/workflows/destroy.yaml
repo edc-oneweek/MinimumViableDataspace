@@ -86,3 +86,7 @@ jobs:
           TF_VAR_registry_share: ${{ secrets.REGISTRY_SHARE }}
           TF_VAR_acr_resource_group: ${{ secrets.COMMON_RESOURCE_GROUP }}
           TF_VAR_acr_name: ${{ secrets.ACR_NAME }}
+          TF_VAR_dynamics_tenant_id: dummy
+          TF_VAR_dynamics_client_id: dummy
+          TF_VAR_dynamics_username: dummy
+          TF_VAR_dynamics_password: dummy
