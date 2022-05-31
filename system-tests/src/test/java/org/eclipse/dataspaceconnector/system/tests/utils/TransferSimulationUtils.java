@@ -51,7 +51,7 @@ public abstract class TransferSimulationUtils {
 
     public static final String DESCRIPTION = "[Contract negotiation and dataverse transfer]";
 
-    public static final String PROVIDER_ASSET_ID = "dataverse-data";
+    public static final String PROVIDER_ASSET_ID = "my-dataverse-product";
     public static final String PROVIDER_ASSET_FILE = "text-document.txt";
 
     public static final String TRANSFER_SUCCESSFUL = "Transfer successful";
@@ -59,7 +59,7 @@ public abstract class TransferSimulationUtils {
     public static final String TRANSFER_PROCESSES_PATH = "/transferprocess";
 
     // Related to Postman seed data
-    public static final String CONTRACT_DEFINITION_ID = "4a75736e-001d-4364-8bd4-9888490edb56";
+    public static final String CONTRACT_DEFINITION_ID = "my-dataverse-product-contract-definition";
     public static final String POLICY_ID = "0a3dbe71-2ddf-4c3a-b72e-d190bb4d3c58";
 
     private TransferSimulationUtils() {
@@ -220,7 +220,7 @@ public abstract class TransferSimulationUtils {
         var policy = Policy.Builder.newInstance()
                 .id(UUID.randomUUID().toString())
                 .permission(Permission.Builder.newInstance()
-                        .target("dataverse-data")
+                        .target("my-dataverse-product")
                         .action(Action.Builder.newInstance().type("USE").build())
                         .build())
                 .type(PolicyType.SET)
