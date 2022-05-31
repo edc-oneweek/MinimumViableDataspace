@@ -15,7 +15,7 @@ variable "runtime_image" {
 }
 
 variable "location" {
-  default = "westeurope"
+  default = "eastus"
 }
 
 variable "acr_name" {
